@@ -1,0 +1,58 @@
+<div class="container">
+  <div>
+
+    <h2>Calculator</h2>
+      
+    <div class="row">
+        <div class="column">
+          <input class="form-control" placeholder="First Value"  type="text" #f>
+        </div>
+
+        <div class="column">
+          <select class="form-control" #o >
+          <option value="+">+</option>
+          <option value="/">/</option>
+          <option value="*">*</option>
+          <option value="%">%</option>
+          <option value="-">-</option>
+          </select>
+        </div>
+
+        <div class="column">
+          <input class="form-control" placeholder="Second Value" type="text" #s/>
+        </div>
+        
+        <div>
+          <input type="button" class="btn btn-success" (click)="Result(f.value+o.value+s.value)" value="Result"/>
+        </div>
+
+    </div>           
+         <h2>{{result}}</h2>
+  
+  </div>
+  
+
+    <h2>History</h2>
+
+
+    <table class="table">
+      <thead class="thead-light">
+          <tr>
+            <th>Time</th>
+            <th>Expression</th>
+            <th>Result</th>
+          
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let calculate of calculator"> 
+             <td> {{calculate.time | date:"H:mm:ss"}}</td>
+              <td>{{calculate.expr}}</td>
+              <td>{{calculate.result}}</td> 
+          </tr>
+      
+      </tbody>
+    </table>
+    
+
+</div>
